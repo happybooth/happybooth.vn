@@ -1091,7 +1091,8 @@ body:has(.frame-modal[open]) { overflow: hidden; }
   transform: translateY(-18px);
 }
 
-.invite-band__phone img {
+.invite-band__phone img,
+.invite-page__tpl img {
   display: block;
   width: 100%;
   height: auto;
@@ -1105,11 +1106,14 @@ body:has(.frame-modal[open]) { overflow: hidden; }
 }
 
 .invite-band__phone:hover img,
-.invite-band__phone:focus-visible img {
+.invite-band__phone:focus-visible img,
+.invite-page__tpl:hover img,
+.invite-page__tpl:focus-visible img {
   transform: translateY(-6px);
 }
 
-.invite-band__phone span {
+.invite-band__phone span,
+.invite-page__tpl span {
   display: block;
   margin-top: 10px;
 }
@@ -1129,15 +1133,184 @@ body:has(.frame-modal[open]) { overflow: hidden; }
     grid-template-columns: 1fr;
   }
 
-  .invite-band__phone img {
+  .invite-band__phone img,
+  .invite-page__tpl img {
     border-width: 3px;
     border-radius: 14px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .invite-band__phone img {
+  .invite-band__phone img,
+  .invite-page__tpl img {
     transition: none;
+  }
+}
+
+/* Invite page (/thiep-cuoi-online) */
+.invite-page__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.invite-page__hero .project-breadcrumb {
+  margin-bottom: 28px;
+}
+
+.page-header .invite-band__eyebrow {
+  margin-top: 0;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.page-header .invite-page__gift {
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.invite-page__gift strong {
+  font-size: 18px;
+}
+
+.invite-page__section h2 {
+  font-size: clamp(30px, 3.6vw, 52px);
+}
+
+.invite-page__sub {
+  margin-top: 14px;
+  color: var(--color-text-light);
+}
+
+.invite-page__tpls {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px) clamp(10px, 1.6vw, 20px);
+  margin-top: 40px;
+}
+
+.invite-page__tpl {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.invite-page__tpl small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.invite-page__features,
+.invite-page__steps,
+.invite-page__prices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 32px);
+  margin-top: 40px;
+}
+
+.invite-page__features h3,
+.invite-page__steps h3,
+.invite-page__price h3 {
+  font-size: 22px;
+}
+
+.invite-page__features p,
+.invite-page__steps p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--color-text-light);
+}
+
+.invite-page__steps {
+  counter-reset: invite-step;
+}
+
+.invite-page__steps li::before {
+  counter-increment: invite-step;
+  content: counter(invite-step);
+  display: block;
+  margin-bottom: 12px;
+  font: 800 40px/1 var(--font-display);
+  color: var(--color-pink);
+}
+
+.invite-page__steps a {
+  text-decoration: underline;
+}
+
+.invite-page__price {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.invite-page__price--gift {
+  border-color: transparent;
+  background: var(--color-blush);
+}
+
+.invite-page__amount {
+  margin-top: 12px;
+  font: 800 30px/1 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.invite-page__price ul {
+  margin-top: 18px;
+}
+
+.invite-page__price li {
+  position: relative;
+  margin-top: 8px;
+  padding-left: 16px;
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+
+.invite-page__price li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-pink);
+}
+
+@media (max-width: 1100px) {
+  .invite-page__prices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .invite-page__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .invite-page__tpls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .invite-page__features,
+  .invite-page__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .invite-page__features,
+  .invite-page__steps,
+  .invite-page__prices {
+    grid-template-columns: 1fr;
   }
 }
 

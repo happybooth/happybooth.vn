@@ -55,7 +55,8 @@
     contact: '/contact',
     'du-an-note-group': '/du-an-note-group',
     'du-an-20-10': '/du-an-20-10',
-    'thue-photobooth-su-kien-ha-noi': '/thue-photobooth-su-kien-ha-noi'
+    'thue-photobooth-su-kien-ha-noi': '/thue-photobooth-su-kien-ha-noi',
+    'thiep-cuoi-online': '/thiep-cuoi-online'
   };
 
   function pageToHref(page) {
@@ -253,7 +254,7 @@
   }
 
   function preloadPages() {
-    var pages = ['/', '/about', '/portfolio', '/frame', '/price', '/contact'];
+    var pages = ['/', '/about', '/portfolio', '/frame', '/price', '/contact', '/thiep-cuoi-online'];
     var idleCallback = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
 
     idleCallback(function () {

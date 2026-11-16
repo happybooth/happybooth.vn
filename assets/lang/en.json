@@ -1,6 +1,7 @@
 {
   "meta.title.du-an-20-10": "20/10 photobooth: A thousand smiles | Happy Booth",
   "meta.title.thue-photobooth-su-kien-ha-noi": "Event photobooth rental in Hanoi: prices & tips | Happy Booth",
+  "meta.title.thiep-cuoi-online": "Online wedding invitations that greet each guest by name | Happy Booth",
   "common.nav.about": "Projects",
   "meta.title.about": "Event & wedding projects — Happy Booth",
   "projects.intro": "Happy Booth provides photobooth rentals in Hanoi for businesses and couples celebrating special occasions. From the photo corner to the prints guests take home, we shape the experience around the character of each event.",
@@ -202,6 +203,7 @@
   "portfolio.cta.seeGalleries": "See frame designs",
   "price.title": "Pricing",
   "price.description": "A few-hour birthday or an all-day wedding, there's a package below for it. Not sure which one? Just call us, tell us a bit about your event and we'll point you to the right one.",
+  "price.giftNote": "<strong>Free event website</strong> for every event booked from 5,500,000 VND. <a href=\"/thiep-cuoi-online\">See event websites</a>",
   "price.hourly.basicLabel": "Basic series, 16'' booth",
   "price.basic.name": "Basic",
   "price.basic.tagline": "Just right for a small, cosy party",
@@ -235,6 +237,7 @@
   "price.premium2.tagline": "Our fullest package, with a leather album",
   "price.everythingPremium1": "Everything in Premium 1, plus:",
   "price.f.album": "A premium leather album (instead of the scrapbook)",
+  "price.f.eventSite": "<a href=\"/thiep-cuoi-online\">Free event website</a>",
   "price.f.extra1_2m": "Extra hour: 1.700.000đ",
   "price.dayBasic.name": "Basic, daily",
   "price.dayBasic.tagline": "Booth 16'' for full-day events",

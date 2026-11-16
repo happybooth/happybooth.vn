@@ -10,7 +10,7 @@ docker run --rm --platform linux/amd64 \
   -v "$PWD":/github/workspace/src:ro \
   -v "$out":/github/workspace/_site \
   -e GITHUB_WORKSPACE=/github/workspace \
-  -e GITHUB_REPOSITORY=dungnguyenv/happybooth \
+  -e GITHUB_REPOSITORY=happybooth/happybooth.vn \
   -e INPUT_SOURCE=src -e INPUT_DESTINATION=_site \
   -e INPUT_VERBOSE=false -e INPUT_FUTURE=false -e INPUT_BUILD_REVISION=local \
   -e NO_NETWORK=true \

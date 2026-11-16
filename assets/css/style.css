@@ -1916,6 +1916,11 @@ html[lang="en"] .seo-faq {
   display: none;
 }
 
+/* Vietnamese-only links and blocks (the wedding invitation site has no English version) */
+html[lang="en"] .vi-only {
+  display: none;
+}
+
 .seo-faq__item {
   border-bottom: 1px solid var(--color-border);
   padding: 18px 0;

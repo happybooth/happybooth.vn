@@ -113,3 +113,50 @@ test('invite images exist and declare their size', () => {
     assert.match(tag, /height="\d+"/, src + ' has no height');
   }
 });
+
+const price = read('pages/main/price.html');
+function card(nameKey) {
+  const at = price.indexOf('data-i18n="' + nameKey + '"');
+  assert.ok(at !== -1, 'no card ' + nameKey);
+  return price.slice(at, price.indexOf('</article>', at));
+}
+
+test('price page gives the event website with Premium 2 and every daily package', () => {
+  for (const key of ['price.premium2.name', 'price.dayBasic.name', 'price.dayPremium.name', 'price.dayUnlimited.name', 'price.multiDay.name']) {
+    const c = card(key);
+    assert.ok(c.includes('<li data-i18n-html="price.f.eventSite"><a href="/thiep-cuoi-online">Tặng website sự kiện</a></li>'), key + ' lacks the event website');
+  }
+  for (const key of ['price.basic.name', 'price.happy1.name', 'price.happy2.name', 'price.premium1.name', 'price.lite.name']) {
+    assert.ok(!card(key).includes('price.f.eventSite'), key + ' should not list the event website');
+  }
+});
+
+test('price page leads with the event website note', () => {
+  const header = price.slice(price.indexOf('<section class="page-header">'), price.indexOf('</section>', price.indexOf('<section class="page-header">')));
+  const note = header.match(/<p class="price-gift" data-i18n-html="price\.giftNote">([\s\S]*?)<\/p>/);
+  assert.ok(note, 'no gift note in the page header');
+  assert.ok(note[1].includes('5.500.000đ') && note[1].includes('href="/thiep-cuoi-online"'), 'gift note copy or link');
+});
+
+test('the gift wording has Vietnamese and English translations', () => {
+  const vi = JSON.parse(read('assets/lang/vi.json'));
+  const en = JSON.parse(read('assets/lang/en.json'));
+  for (const key of ['price.giftNote', 'price.f.eventSite']) {
+    assert.ok(vi[key] && vi[key].includes('/thiep-cuoi-online'), 'vi.json ' + key);
+    assert.ok(en[key] && en[key].includes('/thiep-cuoi-online') && !/Tặng/.test(en[key]), 'en.json ' + key);
+  }
+  assert.ok(price.includes(vi['price.giftNote']), 'vi.json giftNote differs from the HTML');
+});
+
+test('the price FAQ mentions the event website on the page and in JSON-LD', () => {
+  const sentence = 'Premium 2 và các gói theo ngày tặng kèm website sự kiện.';
+  const ld = price.slice(price.indexOf('<script type="application/ld+json">'), price.indexOf('</script>'));
+  assert.ok(ld.includes(sentence), 'JSON-LD answer');
+  assert.ok(price.slice(price.indexOf('</script>')).replace(/\s+/g, ' ').includes(sentence), 'visible answer');
+});
+
+test('home price note points to the invite page', () => {
+  const at = home.indexOf('class="price-band__invite vi-only" lang="vi"');
+  const note = home.slice(at, home.indexOf('</p>', at));
+  assert.ok(note.includes('website sự kiện') && note.includes('href="/thiep-cuoi-online"'), 'home price note');
+});

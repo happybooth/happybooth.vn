@@ -980,7 +980,8 @@ body:has(.frame-modal[open]) { overflow: hidden; }
   border-top: 1px solid var(--color-border);
 }
 
-.services__row:last-child {
+/* On the list, not the last row: in English the last row (the invite) is hidden */
+.services ul {
   border-bottom: 1px solid var(--color-border);
 }
 
